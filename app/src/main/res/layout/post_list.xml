@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#80FFFFFF"
-    android:backgroundTintMode="src_over"
     tools:context="gr.metaptixiako.forumergasia.PostActivity">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
 
     <TextView
         android:id="@+id/wellcome_topic"
@@ -24,7 +28,7 @@
         tools:textAlignment="center" />
 
     <ListView
-        android:id="@+id/list_post"
+        android:id="@+id/list_posts"
         android:layout_width="wrap_content"
         android:layout_height="248dp"
         android:layout_marginTop="8dp"
@@ -44,7 +48,7 @@
         android:layout_marginTop="8dp"
         android:background="#2D89CC"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/button_topic_new"
+        app:layout_constraintTop_toBottomOf="@+id/button_posts_new"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -93,7 +97,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/topic_new"
+        android:id="@+id/posts_new"
         android:layout_width="317dp"
         android:layout_height="88dp"
         android:ems="10"
@@ -101,11 +105,11 @@
         android:text="New Post"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_post"
+        app:layout_constraintTop_toBottomOf="@+id/list_posts"
         tools:background="@drawable/common_google_signin_btn_text_light_normal_background" />
 
     <Button
-        android:id="@+id/button_topic_new"
+        android:id="@+id/button_posts_new"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
@@ -114,6 +118,8 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topic_new" />
+        app:layout_constraintTop_toBottomOf="@+id/posts_new" />
 
 </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

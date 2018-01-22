@@ -77,7 +77,7 @@ public class TopicActivity extends AppCompatActivity {
         });
 
         DataList = new ArrayList<>();
-        lv = (ListView) findViewById(R.id.list_post);
+        lv = (ListView) findViewById(R.id.list_topic);
 
         new GetData().execute();
     }
@@ -141,7 +141,7 @@ public class TopicActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            ListAdapter adapter = new SimpleAdapter(TopicActivity.this, DataList, R.layout.activity_topic,new String[]{"sumForumStr","name"},new int[]{R.id.topic_id,R.id.topic_name});
+            ListAdapter adapter = new SimpleAdapter(TopicActivity.this, DataList, R.layout.activity_topic,new String[]{"sumForumStr","name","topic_invisible"},new int[]{R.id.topic_id,R.id.topic_name,R.id.topic_parent_id});
             lv.setAdapter(adapter);
             lv.setOnItemClickListener(new ListClickHandler());
 
