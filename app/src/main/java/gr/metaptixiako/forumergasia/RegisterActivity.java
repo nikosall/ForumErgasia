@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
                 user = username.getText().toString();
                 password = (EditText) findViewById(R.id.pass);
                 pass = password.getText().toString();
-                repassword = (EditText) findViewById(R.id.pass);
+                repassword = (EditText) findViewById(R.id.repass);
                 repass = repassword.getText().toString();
                 username2 = (EditText) findViewById(R.id.name);
                 user2 = username2.getText().toString();
