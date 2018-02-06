@@ -103,6 +103,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="New Post"
+        android:focusable="true"
+        android:gravity="top|left"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_posts"

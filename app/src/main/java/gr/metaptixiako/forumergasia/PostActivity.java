@@ -83,7 +83,7 @@ import java.util.HashMap;
                         int sumForum = 0;
                         String sumForumStr;
 
-                        Cursor allPosts = mydatabase.rawQuery("SELECT * FROM posts ", null);
+                        Cursor allPosts = mydatabase.rawQuery("SELECT * FROM posts WHERE parent_id = "+topic_invisible, null);
 
 
                         if (allPosts.moveToFirst()) {
