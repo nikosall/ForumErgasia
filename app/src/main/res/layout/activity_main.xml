@@ -4,33 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/skata"
     tools:context="gr.metaptixiako.forumergasia.MainActivity">
 
     <TextView
         android:id="@+id/wellcomeText"
         android:layout_width="278dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="56dp"
         android:background="@android:drawable/editbox_dropdown_light_frame"
         android:text="Καλως ήρθατε ."
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonArxikiSelida"
-        android:layout_width="158dp"
-        android:layout_height="86dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Συνέχεια"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="136dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="312dp"
+        android:text="ΣΥΝΔΕΘΕΙΤΕ"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wellcomeText"
-        app:layout_constraintVertical_bias="0.856" />
+        app:layout_constraintTop_toBottomOf="@+id/wellcomeText" />
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="312dp"
+        android:text="ΕΓΓΡΑΦΕΙΤΕ"
+        app:layout_constraintEnd_toStartOf="@+id/buttonArxikiSelida"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wellcomeText" />
 </android.support.constraint.ConstraintLayout>

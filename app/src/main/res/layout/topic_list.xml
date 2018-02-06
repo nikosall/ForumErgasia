@@ -107,7 +107,7 @@
         android:layout_width="317dp"
         android:layout_height="88dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text|textMultiLine|textCapSentences"
         android:focusable="true"
         android:hint="New topic"
         android:gravity="top|left"

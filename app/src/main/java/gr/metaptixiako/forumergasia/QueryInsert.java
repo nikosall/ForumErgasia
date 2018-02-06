@@ -1,8 +1,5 @@
 package gr.metaptixiako.forumergasia;
 
-/**
- * Created by nikos on 1/3/18.
- */
 
 public class QueryInsert {
 
