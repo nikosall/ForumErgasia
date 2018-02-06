@@ -47,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 mydatabase.execSQL("INSERT INTO forumLogin VALUES('admin','admin','ok');");
                 try {
-                    user = "admin";
-                    pass = "admin";
+                    //user = "admin";
+                    //pass = "admin";
                     Cursor resultSet = mydatabase.rawQuery("Select * from forumLogin WHERE Username ='" + user + "' AND Password = '" + pass + "'", null);
                     if (resultSet == null){
                         Toast.makeText(getApplicationContext(),
