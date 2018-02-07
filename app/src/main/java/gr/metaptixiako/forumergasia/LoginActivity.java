@@ -8,24 +8,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class LoginActivity extends AppCompatActivity {
 
 
-    EditText username,password;
+    EditText username,password,reg2;
+    TextView textViewReg;
     String user,pass;
-    int counter = 3;
     Button b2;
-    private String TAG = LoginActivity.class.getSimpleName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        textViewReg =(TextView)findViewById(R.id.textView_register); //στην activity_login.xml υπάρχει ένα text view για register
+                                                                    // εδώ οριζω μια μεταβλητή τύπου text view να
+                                                                    //να γίνει clickable ώστε να μπορέσω να μεταφερθώ αν
+                                                                    //θέλω από το login στο gegister να κάνω εγγραφή.
+
+        textViewReg.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         b2 = (Button)findViewById(R.id.button_login);
@@ -41,22 +51,15 @@ public class LoginActivity extends AppCompatActivity {
                // System.out.println("pass " + pass);
 
 
+                //συνδέεται με την βάση απλά για να κάνει login
                 SQLiteDatabase mydatabase = openOrCreateDatabase("Forum", MODE_PRIVATE, null);
 
                 mydatabase.execSQL("CREATE TABLE IF NOT EXISTS forumLogin (Username VARCHAR,Password VARCHAR,Result VARCHAR);");
 
-                mydatabase.execSQL("INSERT INTO forumLogin VALUES('admin','admin','ok');");
                 try {
-                    //user = "admin";
-                    //pass = "admin";
+                    //έλεγχος οτι υπάρχει ο χρήστης. Με το select * from .... φέρνει όλα τα στοιχεία του πίνακα.
                     Cursor resultSet = mydatabase.rawQuery("Select * from forumLogin WHERE Username ='" + user + "' AND Password = '" + pass + "'", null);
-                    if (resultSet == null){
-                        Toast.makeText(getApplicationContext(),
-                                "Συνδεθήκατε Επιτυχώς", Toast.LENGTH_SHORT).show();
-                    }else{
-                    resultSet.moveToFirst();}
-                    //String username = resultSet.getString(resultSet.getColumnIndex("Username"));
-                    // String password = resultSet.getString(resultSet.getColumnIndex("Password"));
+                    //όταν κάνει εγγραφή βάζει στην βάση μία μεταβλητή "ok". Αυτό το κάνει για να ελέγξει μετά ότι υπάχει ο χρήστης με το  if ("ok".equals(result)).
                     String result = resultSet.getString(resultSet.getColumnIndex("Result"));
 
                     System.out.println("Result " + result);
@@ -77,12 +80,6 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
 
                         Toast.makeText(getApplicationContext(), "Λάθος Διαπιστευτήρια", Toast.LENGTH_SHORT).show();
-                        counter--;
-
-                        if (counter == 0) {
-                            Toast.makeText(getApplicationContext(), "Προσπαθήστε Αργότερα", Toast.LENGTH_SHORT).show();
-                            b2.setEnabled(false);
-                        }
 
                     }
                 } catch (IndexOutOfBoundsException e) {

@@ -22,11 +22,9 @@ import java.util.HashMap;
 public class ForumActivity extends AppCompatActivity {
 
     private ListView lv;
-    int forumVersion = 2;
+    int forumVersion = 1;
 
-    ArrayList<HashMap<String, String>> DataList;
-
-
+    ArrayList<HashMap<String, String>> DataList; //Πίνακας με δύο στήλες
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +32,11 @@ public class ForumActivity extends AppCompatActivity {
         setContentView(R.layout.forum_list);
 
         DataList = new ArrayList<>();
-        //lv = (ListView) findViewById(R.id.list_forum);
 
         new GetData().execute();
     }
 
-    private class GetData extends AsyncTask<Void, Void, Void> {
+    private class GetData extends AsyncTask<Void, Void, Void> { //μία κλάση που τρέχει στο παρασκήνιο
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -52,29 +49,29 @@ public class ForumActivity extends AppCompatActivity {
 
             try {
 
+                //σύνδεση και δημιουργία της βάσης δεδομένων
+
                 SQLiteDatabase mydatabase = openOrCreateDatabase("ForumDB", MODE_PRIVATE, null);
 
                 mydatabase.execSQL("CREATE TABLE IF NOT EXISTS forums (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR , parent_id INTEGER);");
                 mydatabase.execSQL("CREATE TABLE IF NOT EXISTS topics (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR , parent_id INTEGER);");
                 mydatabase.execSQL("CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY AUTOINCREMENT, text VARCHAR , parent_id INTEGER , author_id INTEGER);");
 
-
-
-                //mydatabase.rawQuery("SELECT f.name, f.id,COUNT(f.id) AS topic_count, f.parent_id FROM forums AS f LEFT JOIN topics AS t ON f.id = t.parent_id GROUP BY f.id", null);
                 Cursor test = mydatabase.rawQuery("Select * from forums ", null);
 
-                if(forumVersion!=1 || test==null){  // Αυτό καθαρά για να βοηθήσει να διαγραφω τα πάντα και να βλέπω τις αλλαγές όταν θα
-                                        //ολοκληρωθεί το πρόγραμμα μπορεί να διαγαφεί
+                if(forumVersion!=1 || test==null){  // forumVersion!=1 : Αυτό καθαρά για να βοηθήσει να διαγραφω τα πάντα και να βλέπω τις αλλαγές όταν θα
+                                                     //ολοκληρωθεί το πρόγραμμα μπορεί να διαγαφεί
 
-                    mydatabase.execSQL("DROP TABLE IF EXISTS forums;");
+                    mydatabase.execSQL("DROP TABLE IF EXISTS forums;"); //διαγράφει τους πάνακες
                     mydatabase.execSQL("DROP TABLE IF EXISTS topics;");
                     mydatabase.execSQL("DROP TABLE IF EXISTS posts;");
 
-
+                    //φτιάχνει τους πίνακες
                     mydatabase.execSQL("CREATE TABLE IF NOT EXISTS forums (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR , parent_id INTEGER);");
                     mydatabase.execSQL("CREATE TABLE IF NOT EXISTS topics (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR , parent_id INTEGER);");
                     mydatabase.execSQL("CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY AUTOINCREMENT, text VARCHAR , parent_id INTEGER , author_id INTEGER);");
 
+                    //περνάει τα δεδομένα από το QueryInsert.java
                     mydatabase.execSQL(new QueryInsert().QueryInsertForums());
                     mydatabase.execSQL(new QueryInsert().QueryInsertTopics());
                     mydatabase.execSQL(new QueryInsert().QueryInsertPosts());
