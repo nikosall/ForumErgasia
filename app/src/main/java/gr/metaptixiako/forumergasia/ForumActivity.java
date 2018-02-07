@@ -79,8 +79,8 @@ public class ForumActivity extends AppCompatActivity {
 
                 DataList = new ArrayList<>();
 
-                int sumForum = 0;
-                String sumForumStr;
+                int sum = 0;
+                String sumStr;
 
                 Cursor allForums = mydatabase.rawQuery("Select * from forums ", null);
 
@@ -89,19 +89,17 @@ public class ForumActivity extends AppCompatActivity {
 
                         HashMap<String, String> list = new HashMap<>();//ορίζει μια λίστα
 
-                        sumForum = sumForum+1;//για το Α/Α αριθμό της λίστας
+                        sum = sum+1;//για το Α/Α αριθμό της λίστας
 
-                        sumForumStr = "" + sumForum;//τέχνασμα γιατί η λίστα θέλει string για να μετατραπεί από
+                        sumStr = "" + sum;//τέχνασμα γιατί η λίστα θέλει string για να μετατραπεί από int σε string
                         String forumname = allForums.getString(allForums.getColumnIndex("name"));
 
-                        System.out.println("name "+forumname);
-
                         int forum_invisible =allForums.getInt(allForums.getColumnIndex("id"));
-                        System.out.println("id "+forum_invisible);
-
+                        //Τα περνάει όλα σε λίστα και μετά τα προσθέτε σε Datalist
                         list.put("forumname", forumname);
                         list.put("forum_invisible", ""+forum_invisible);
-                        list.put("sumForumStr", sumForumStr);
+                        list.put("sumForumStr", sumStr);
+
                         DataList.add(list);
 
                         allForums.moveToNext();
@@ -119,10 +117,13 @@ public class ForumActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
+
+            //Copy paste από το ίντερνετ να φτιαχτεί μια λίστα (ListAdapter). Στην ουσία πάει στο activity_forum.xml και περνάει
+            //γραμμή γραμμή τα δεδομένα και τα πετάει στην λίστα.
             lv = (ListView) findViewById(R.id.list_forum);
             ListAdapter adapter = new SimpleAdapter(ForumActivity.this, DataList, R.layout.activity_forum,new String[]{"sumForumStr","forumname","forum_invisible"},new int[]{R.id.forum_id,R.id.forum_name,R.id.forum_invisible});
             lv.setAdapter(adapter);
-            lv.setOnItemClickListener(new ListClickHandler());
+            lv.setOnItemClickListener(new ListClickHandler()); //Κάνει την λίστα clickable.
 
 
         }
@@ -135,7 +136,10 @@ public class ForumActivity extends AppCompatActivity {
                 TextView bird_id = (TextView) view.findViewById(R.id.forum_invisible);
                 String forum_invisibleid = bird_id.getText().toString();
                 Intent intent = new Intent(ForumActivity.this, TopicActivity.class);
-                intent.putExtra("forum_invisible", forum_invisibleid);
+                intent.putExtra("forum_invisible", forum_invisibleid); //Τεχνική να μπορούν να συνδεθούν τα intent μεταξύ τους με
+                                                                            //το κλειδί στην συγγεκριμένη περίπτωση forum_invisibleid.
+                                                                            //το οποίο με το intent.putExtra απλά το μεταφέρει στο επόμενο intent όπου θα το
+                                                                            //ανακτήσουμε με intent.getStringExtra.
                 startActivity(intent);
 
             }
