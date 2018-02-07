@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Εδώ έχω φτιάξει δύο κουμπιά ένα για να κάνει είσοδο και ένα για να κάνει εγγραφή
+        //κάθε κουμπί θα μεταφέρει τον χρήστη σε διαφορετικό intent με to start activity
+
         b1 = (Button)findViewById(R.id.buttonArxikiSelida);
 
 

@@ -23,6 +23,9 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
+        //με το κουμπί b2 θα πάρει όλα τα στοιχεία από την φόρμα εγγραφής και αφού περάσει
+        //τους ελένχους ότι δεν είναι null και ότι το pass και το repass είναι ίδιοι κωδικοί
+        //θα βάλει το username και το pass στην βάση.
 
         b2 = (Button)findViewById(R.id.egrafi);
 
@@ -44,21 +47,22 @@ public class RegisterActivity extends AppCompatActivity {
                 repassword = (EditText) findViewById(R.id.repassw);
                 repass = repassword.getText().toString();
 
-                try {
+                try {//το try catch το βάλαμε για έλενχο άν γίνει κάποιο σφάλμα να εντοπιστεί
 
-                    System.out.println(pass);
-                    System.out.println(repass);
+                    //System.out.println(pass);
+                    //System.out.println(repass);
 
 
-                    if(pass==repass){
+                    if( user!=null && user2!=null && surnameid!=null && pass!=null && repass!=null && new String(pass).equals(repass)){ //έλενχος
 
-                        SQLiteDatabase mydatabase = openOrCreateDatabase("Forum", MODE_PRIVATE, null);
+                        SQLiteDatabase mydatabase = openOrCreateDatabase("Forum", MODE_PRIVATE, null); //δημιουργεί ή συνδέεται με την βάση Forum
 
-                        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS forumLogin (Username VARCHAR,Password VARCHAR,Result VARCHAR);");
+                        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS forumLogin (Username VARCHAR,Password VARCHAR,Result VARCHAR);"); //φτιάχνει τον πίνακα forumLogin αν είναι ο πρώτος
+                                                                                                                                        //χρήστης ή συνδέεται με αυτόν.
 
-                        mydatabase.execSQL("INSERT INTO forumLogin VALUES('" + user + "','" + pass + "','ok');");
-                        Toast.makeText(getApplicationContext(), "Μπράβο, εκτελέστηκε επιτυχώς.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        mydatabase.execSQL("INSERT INTO forumLogin VALUES('" + user + "','" + pass + "','ok');");   //βάζει στον πίνακα τα username kai ta passsword.
+                        Toast.makeText(getApplicationContext(), "Μπράβο, εκτελέστηκε επιτυχώς.", Toast.LENGTH_SHORT).show(); //απλό μύνημα κειμένου που εκτυπώνεται στην οθόνη.
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class); //προετοιμάζει την μεταφορά σε καινούριο intent
                         startActivity(intent);
 
                     }else{
