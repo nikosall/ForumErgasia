@@ -52,7 +52,7 @@ public class MapsActivity extends AppCompatActivity
     // A default location (Sydney, Australia) and default zoom to use when location permission is
     // not granted.
     private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
-    private static final int DEFAULT_ZOOM = 15;
+    private static final int DEFAULT_ZOOM = 5;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
@@ -131,8 +131,6 @@ public class MapsActivity extends AppCompatActivity
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
 
-
-
     }
 
     /**
@@ -160,15 +158,24 @@ public class MapsActivity extends AppCompatActivity
                         } else {
 
 
-
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(mLastKnownLocation.getLatitude(),
                                             mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
                             mMap.addMarker(new MarkerOptions()
                                     .title("H thesi moy")
-                                    .snippet("")
+                                    .snippet("1")
                                     .position( new LatLng(mLastKnownLocation.getLatitude(),
                                             mLastKnownLocation.getLongitude())));
+                            mMap.addMarker(new MarkerOptions()
+                                    .title("Δεύτερη θέση.")
+                                    .snippet("2")
+                                    .position( new LatLng(24.3259,
+                                            25.21458)));
+                            mMap.addMarker(new MarkerOptions()
+                                    .title("Τρίτη θέση")
+                                    .snippet("3")
+                                    .position( new LatLng(28.2154,
+                                            28.2258)));
 
                         }
 

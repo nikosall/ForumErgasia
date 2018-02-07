@@ -22,7 +22,7 @@ import java.util.HashMap;
 public class ForumActivity extends AppCompatActivity {
 
     private ListView lv;
-    int forumVersion = 1;
+    int forumVersion = 2;
 
     ArrayList<HashMap<String, String>> DataList; //Πίνακας με δύο στήλες
 

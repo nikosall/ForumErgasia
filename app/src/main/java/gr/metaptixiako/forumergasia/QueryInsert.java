@@ -1,6 +1,9 @@
 package gr.metaptixiako.forumergasia;
 
 
+//Εδώ απλά τρέχουν όλα τα ερωτήματα που αποθηκεύονται στην βάση σε κάθε πίνακα. Είναι ερωτήματα που συνδέονται
+//με την σελίδα ForumActivity.java
+
 public class QueryInsert {
 
     String queryforums,querytopics,queryposts;
