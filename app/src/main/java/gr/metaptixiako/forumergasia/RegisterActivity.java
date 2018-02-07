@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                     //System.out.println(repass);
 
 
-                    if( user!=null && user2!=null && surnameid!=null && pass!=null && repass!=null && new String(pass).equals(repass)){ //έλενχος
+                    if( !user.equals("")&& !user2.equals("") && !surnameid.equals("") && !pass.equals("") && !repass.equals("") && new String(pass).equals(repass)){ //έλενχος
 
                         SQLiteDatabase mydatabase = openOrCreateDatabase("Forum", MODE_PRIVATE, null); //δημιουργεί ή συνδέεται με την βάση Forum
 
@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 } catch (IndexOutOfBoundsException e) {
-                    Toast.makeText(getApplicationContext(), "Λάθος Διαπιστευτήρια...........", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Λάθος Διαπιστευτήρια..", Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -84,13 +84,14 @@ public class ForumActivity extends AppCompatActivity {
 
                 Cursor allForums = mydatabase.rawQuery("Select * from forums ", null);
 
-                if (allForums.moveToFirst()) {
+                if (allForums.moveToFirst()) { //κάνει loop σε όλα τα στοιχεία του πίνακα στην βάση δεδομένων
                     while (allForums.isAfterLast()==false) {
-                        HashMap<String, String> list = new HashMap<>();
 
-                        sumForum = sumForum+1;
+                        HashMap<String, String> list = new HashMap<>();//ορίζει μια λίστα
 
-                        sumForumStr = "" + sumForum;
+                        sumForum = sumForum+1;//για το Α/Α αριθμό της λίστας
+
+                        sumForumStr = "" + sumForum;//τέχνασμα γιατί η λίστα θέλει string για να μετατραπεί από
                         String forumname = allForums.getString(allForums.getColumnIndex("name"));
 
                         System.out.println("name "+forumname);
