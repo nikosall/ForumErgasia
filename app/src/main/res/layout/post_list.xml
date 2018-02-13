@@ -67,7 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="24dp"
         android:layout_marginTop="8dp"
-        android:background="#2D89CC"
+        android:background="#CBCAC7"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -83,15 +83,6 @@
             android:layout_weight="1"
             android:ems="10"
             android:text="Α/Α"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/forum2_name"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:text="Topics"
             android:textStyle="bold" />
 
     </LinearLayout>

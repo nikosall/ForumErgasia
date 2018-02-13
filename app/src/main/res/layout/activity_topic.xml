@@ -34,14 +34,6 @@
             android:ems="10"
             android:text="Topics" />
 
-        <TextView
-            android:id="@+id/topic_views"
-            android:layout_width="33dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:text="Posts" />
-
     </LinearLayout>
 
     <TextView

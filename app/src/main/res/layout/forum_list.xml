@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="318dp"
         android:layout_marginBottom="8dp"
+        android:layout_margin="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,7 @@
         android:layout_height="49dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="13dp"
-        android:background="#2D89CC"
+        android:background="#CBCAC7"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +62,7 @@
         android:layout_width="0dp"
         android:layout_height="24dp"
         android:layout_marginTop="13dp"
-        android:background="#2D89CC"
+        android:background="#CBCAC7"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -86,15 +87,6 @@
             android:layout_weight="1"
             android:ems="10"
             android:text="Θέματα"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/forum2_topics"
-            android:layout_width="33dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:text="Topics"
             android:textStyle="bold" />
 
     </LinearLayout>

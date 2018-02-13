@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/skata"
+    android:background="@drawable/firsticon"
     tools:context="gr.metaptixiako.forumergasia.MainActivity">
 
     <TextView
         android:id="@+id/wellcomeText"
-        android:layout_width="278dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:background="@android:drawable/editbox_dropdown_light_frame"

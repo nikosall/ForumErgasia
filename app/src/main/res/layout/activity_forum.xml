@@ -10,7 +10,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -33,14 +33,6 @@
             android:layout_weight="1"
             android:ems="10"
             android:text="Forum" />
-
-        <TextView
-            android:id="@+id/forum_topics"
-            android:layout_width="33dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:text="Topics" />
 
         <TextView
             android:id="@+id/forum_invisible"
