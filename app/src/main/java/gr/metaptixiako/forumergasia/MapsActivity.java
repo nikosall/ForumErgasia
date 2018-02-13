@@ -169,8 +169,8 @@ public class MapsActivity extends AppCompatActivity
                             mMap.addMarker(new MarkerOptions()
                                     .title("Maria.")
                                     .snippet("")
-                                    .position( new LatLng(28.2154,
-                                            28.2258)));
+                                    .position( new LatLng(37.98058,
+                                            23.63479)));
 
                         }
 
