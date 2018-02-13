@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -29,6 +31,9 @@ import java.util.HashMap;
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
+                requestWindowFeature(Window.FEATURE_NO_TITLE);
+                getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 setContentView(R.layout.post_list);
 
                 Intent intent = getIntent();
@@ -42,6 +47,13 @@ import java.util.HashMap;
 
                         EditText new_post_EditText = (EditText) findViewById(R.id.posts_new);
                         String new_post = new_post_EditText.getText().toString();
+
+                        if (new_post.equals("")||new_post==null) {
+
+                            Toast.makeText(getApplicationContext(), "Δεν έχετε γράψει κάποιο post.", Toast.LENGTH_SHORT).show();
+
+                        }
+
                         SQLiteDatabase mydatabase = openOrCreateDatabase("ForumDB", MODE_PRIVATE, null);
 
                         mydatabase.execSQL("INSERT INTO posts (text , parent_id) VALUES ('"+new_post+"',"+topic_invisible+");");

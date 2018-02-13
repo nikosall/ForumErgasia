@@ -8,6 +8,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -22,13 +24,16 @@ import java.util.HashMap;
 public class ForumActivity extends AppCompatActivity {
 
     private ListView lv;
-    int forumVersion = 2;
+    int forumVersion = 1;
 
     ArrayList<HashMap<String, String>> DataList; //Πίνακας με δύο στήλες
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.forum_list);
 
         DataList = new ArrayList<>();

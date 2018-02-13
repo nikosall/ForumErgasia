@@ -47,7 +47,7 @@ public class MapsActivity extends AppCompatActivity
     // A default location (Sydney, Australia) and default zoom to use when location permission is
     // not granted.
     private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
-    private static final int DEFAULT_ZOOM = 5;
+    private static final int DEFAULT_ZOOM = 8;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
@@ -158,17 +158,17 @@ public class MapsActivity extends AppCompatActivity
                                             mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
                             mMap.addMarker(new MarkerOptions()
                                     .title("H thesi moy")
-                                    .snippet("1")
+                                    .snippet("")
                                     .position( new LatLng(mLastKnownLocation.getLatitude(),
                                             mLastKnownLocation.getLongitude())));
                             mMap.addMarker(new MarkerOptions()
-                                    .title("Δεύτερη θέση.")
-                                    .snippet("2")
-                                    .position( new LatLng(24.3259,
-                                            25.21458)));
+                                    .title("Panos.")
+                                    .snippet("")
+                                    .position( new LatLng(37.99353,
+                                            23.64838)));
                             mMap.addMarker(new MarkerOptions()
-                                    .title("Τρίτη θέση")
-                                    .snippet("3")
+                                    .title("Maria.")
+                                    .snippet("")
                                     .position( new LatLng(28.2154,
                                             28.2258)));
 
