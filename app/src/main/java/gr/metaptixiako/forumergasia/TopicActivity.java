@@ -69,7 +69,7 @@ public class TopicActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "Δεν έχετε γράψει κάποιο topic.", Toast.LENGTH_SHORT).show();
 
-                }
+                }else{
                 System.out.println("new_topic "+new_topic);
                 System.out.println("forum_invisible "+forum_invisible);
 
@@ -83,6 +83,7 @@ public class TopicActivity extends AppCompatActivity {
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(intent);
+                }
             }
         });
 

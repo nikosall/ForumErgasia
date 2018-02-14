@@ -52,7 +52,7 @@ import java.util.HashMap;
 
                             Toast.makeText(getApplicationContext(), "Δεν έχετε γράψει κάποιο post.", Toast.LENGTH_SHORT).show();
 
-                        }
+                        }else{
 
                         SQLiteDatabase mydatabase = openOrCreateDatabase("ForumDB", MODE_PRIVATE, null);
 
@@ -64,6 +64,7 @@ import java.util.HashMap;
                         finish();
                         overridePendingTransition(0, 0);
                         startActivity(intent);
+                    }
                     }
                 });
 
